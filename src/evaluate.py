@@ -1,0 +1,73 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score,confusion_matrix, classification_report, roc_auc_score,RocCurveDisplay, mean_absolute_error,mean_squared_error, r2_score
+
+def evaluate_classifier(model, x_train, x_test, y_train, y_test):
+    train_pred = model.predict(x_train)
+    test_pred = model.predict(x_test)
+    print("=" * 60)
+    print("PLACEMENT MODEL EVALUATION")
+    print("=" * 60)
+    print(f"Train Accuracy : {accuracy_score(y_train, train_pred):.4f}")
+    print(f"Test Accuracy  : {accuracy_score(y_test, test_pred):.4f}")
+    print(f"\nPrecision : {precision_score(y_test, test_pred):.4f}")
+    print(f"Recall    : {recall_score(y_test, test_pred):.4f}")
+    print(f"F1 Score  : {f1_score(y_test, test_pred):.4f}")
+    roc = roc_auc_score(y_test, model.predict_proba(x_test)[:, 1])
+    print(f"\nROC AUC : {roc:.4f}")
+    print("\nClassification Report")
+    print(classification_report(y_test, test_pred))
+    cm = confusion_matrix(y_test, test_pred)
+    plt.figure(figsize=(6, 5))
+    sns.heatmap(cm, annot=True, fmt="d", cmap="Blues")
+    plt.xlabel("Predicted")
+    plt.ylabel("Actual")
+    plt.title("Confusion Matrix")
+    plt.show()
+    RocCurveDisplay.from_estimator(model, x_test, y_test)
+    plt.show()
+
+def evaluate_regressor(model, x_train, x_test, y_train, y_test):
+    train_pred = model.predict(x_train)
+    test_pred = model.predict(x_test)
+    y_train_actual = np.expm1(y_train)
+    y_test_actual = np.expm1(y_test)
+    train_pred_actual = np.expm1(train_pred)
+    test_pred_actual = np.expm1(test_pred)
+    train_r2 = r2_score(y_train_actual, train_pred_actual)
+    test_r2 = r2_score(y_test_actual, test_pred_actual)
+    mae = mean_absolute_error(y_test_actual, test_pred_actual)
+    rmse = np.sqrt(mean_squared_error(y_test_actual, test_pred_actual))
+    print("=" * 60)
+    print("PACKAGE MODEL EVALUATION")
+    print("=" * 60)
+    print(f"Train R² : {train_r2:.4f}")
+    print(f"Test R²  : {test_r2:.4f}")
+    print(f"\nMAE  : {mae:.4f}")
+    print(f"RMSE : {rmse:.4f}")
+    plt.figure(figsize=(8, 6))
+    sns.scatterplot(x=y_test_actual, y=test_pred_actual)
+    plt.xlabel("Actual Salary (LPA)")
+    plt.ylabel("Predicted Salary (LPA)")
+    plt.title("Actual vs Predicted Salary")
+    mn = min(y_test_actual.min(), test_pred_actual.min())
+    mx = max(y_test_actual.max(), test_pred_actual.max())
+    plt.plot([mn, mx], [mn, mx], color="red", linestyle="--")
+    plt.show()
+    residue= y_test_actual - test_pred_actual
+    plt.figure(figsize=(8, 6))
+    sns.scatterplot(x=test_pred_actual, y=residue)
+    plt.axhline(0, color="red", linestyle="--")
+    plt.xlabel("Predicted Salary")
+    plt.ylabel("Residual")
+    plt.title("Residual Plot")
+    plt.show()
+
+def plot_feature_importance(model, feature_names):
+    importance = model.feature_importances_
+    idx = np.argsort(importance)[::-1]
+    plt.figure(figsize=(10, 7))
+    sns.barplot(x=importance[idx],y=np.array(feature_names)[idx])
+    plt.title("Feature Importance")
+    plt.show()
