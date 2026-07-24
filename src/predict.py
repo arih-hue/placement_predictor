@@ -1,7 +1,7 @@
 import joblib
 import numpy as np
-from feature_eng import add_features
-from config import (CLASSIFIER_MODEL_PATH,REGRESSOR_MODEL_PATH,BRANCH_ENCODER_PATH,TIER_ENCODER_PATH)
+from src.feature_eng import add_features
+from src.config import (CLASSIFIER_MODEL_PATH,REGRESSOR_MODEL_PATH,BRANCH_ENCODER_PATH,TIER_ENCODER_PATH)
 
 placement_model = joblib.load(CLASSIFIER_MODEL_PATH)
 salary_model = joblib.load(REGRESSOR_MODEL_PATH)

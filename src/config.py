@@ -3,14 +3,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 RANDOM_STATE = 42
 TEST_SIZE = 0.2
 CLASSIFIER_PARAMS = {
-    "n_estimators": 500,
-    "learning_rate": 0.05,
-    "min_child_weight": 3,
-    "max_depth": 5,
-    "subsample": 0.8,
-    "colsample_bytree": 0.8,
-    "gamma": 0.2,
-    "random_state": RANDOM_STATE
+    "n_estimators":300,
+    "learning_rate":0.05,
+    "max_depth":4,
+    "min_child_weight":5,
+    "subsample":0.8,
+    "colsample_bytree":0.8,
+    "gamma":1,
+    "reg_lambda":5,
+    "reg_alpha":0.5,
+    "random_state":42,
+    "eval_metric":"logloss"
 }
 REGRESSOR_PARAMS = {
     "n_estimators": 500,
