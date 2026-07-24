@@ -11,19 +11,14 @@ The project uses **XGBoost Classifier** for placement prediction and **XGBoost R
 
 ## 📸 Application Preview
 
-> Add screenshots after completing the dashboard.
-
 ### Home Page
-
-![Home](../assets/Home.png)
+<img width="1541" height="803" alt="image" src="https://github.com/user-attachments/assets/86ea24df-aa3f-46ab-a376-36daa17b9906" />
 
 ### Dashboard
-
-![Dashboard](../assets/Dashboard.png)
+<img width="1537" height="797" alt="image" src="https://github.com/user-attachments/assets/f779f375-1263-49e2-b0a2-77267af62be8" />
 
 ### Prediction
-
-![Prediction](../assets/Prediction.png)
+<img width="1684" height="842" alt="image" src="https://github.com/user-attachments/assets/0ac44808-1cfa-4d1d-aeed-91cdb40bc997" />
 
 ---
 
@@ -45,11 +40,11 @@ The project uses **XGBoost Classifier** for placement prediction and **XGBoost R
 ```
 Student-Placement-Predictor/
 
-│── app.py
+│── Home.py
 
 │── pages/
 │     ├── Dashboard.py
-│     ├── EDA.py
+│     ├── Analysis.py
 │     ├── Model Performance.py
 │     └── Prediction.py
 
@@ -65,7 +60,7 @@ Student-Placement-Predictor/
 │     └── tier_encoder.pkl
 
 │── notebooks/
-│     └── EDA.ipynb
+│     └── analysis.ipynb
 
 │── src/
 │     ├── config.py
@@ -76,7 +71,7 @@ Student-Placement-Predictor/
 │     ├── train_regressor.py
 │     └── utils.py
 
-│── requirements.txt
+│── requirement.txt
 
 └── README.md
 ```
@@ -216,13 +211,7 @@ Enter student information and predict
 Clone the repository
 
 ```bash
-git clone https://github.com/your-username/student-placement-predictor.git
-```
-
-Move into the project directory
-
-```bash
-cd student-placement-predictor
+git clone https://github.com/arih-hue/placement_predictor.git
 ```
 
 Install dependencies
@@ -272,7 +261,7 @@ streamlit run Home.py
 
 - XGBoost Classifier
 
-Accuracy: **(Add your final accuracy here)**
+Accuracy: **88.63%**
 
 ---
 
@@ -280,11 +269,11 @@ Accuracy: **(Add your final accuracy here)**
 
 - XGBoost Regressor
 
-R² Score: **(Add your final R² here)**
+R² Score: **0.9304**
 
-MAE: **(Add your MAE here)**
+MAE: **0.8362**
 
-RMSE: **(Add your RMSE here)**
+RMSE: **1.978**
 
 ---
 
@@ -303,9 +292,9 @@ RMSE: **(Add your RMSE here)**
 
 **Arihant Yadav**
 
-GitHub: https://github.com/your-github
+GitHub: https://github.com/arih-hue
 
-LinkedIn: https://linkedin.com/in/your-linkedin
+LinkedIn: https://www.linkedin.com/in/arihant-yadav-a58047399/
 
 ---
 
