@@ -85,7 +85,7 @@ st.header("How to Use")
 st.write("""
 1. Open **Dashboard** to view dataset statistics.
 
-2. Open **EDA** to explore the dataset.
+2. Open **Analysis** to explore the dataset.
 
 3. Open **Model Performance** to see model evaluation.
 
