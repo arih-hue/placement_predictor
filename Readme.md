@@ -7,6 +7,8 @@ An end-to-end Machine Learning project that predicts:
 
 The project uses **XGBoost Classifier** for placement prediction and **XGBoost Regressor** for salary prediction. It also includes an interactive **Streamlit dashboard** for data exploration and prediction.
 
+Streamlit app link : https://placementpredictorgit-1.streamlit.app/
+
 ---
 
 ## 📸 Application Preview
