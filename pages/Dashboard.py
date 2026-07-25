@@ -3,7 +3,8 @@ import pandas as pd
 st.title("Dashboard")
 st.write("Dataset Overview and Placement Statistics")
 st.divider()
-df = pd.read_csv("data/student_placement.csv")
+from src.data_loader import load_data
+df = load_data()
 total_students = len(df)
 placed_students = len(df[df["placement_status"] == 1])
 not_placed = len(df[df["placement_status"] == 0])
