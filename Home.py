@@ -1,7 +1,8 @@
 import streamlit as st
 st.set_page_config(
     page_title="Student Placement Predictor",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="expanded",
 )
 st.title("Student Placement & Salary Prediction")
 st.markdown("---")
